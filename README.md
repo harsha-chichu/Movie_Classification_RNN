@@ -1,74 +1,102 @@
-# 🎬 Movie Classification using Simple RNN
 
-This project implements a sentiment analysis model using a Recurrent Neural Network (RNN) to classify movie reviews from the IMDB dataset as **positive** or **negative**. The model is built using TensorFlow/Keras with an Embedding layer, a SimpleRNN layer, and a Dense output layer.
+# 🎬 Movie Review Classification using RNN
+
+This project demonstrates a **Recurrent Neural Network (RNN)** model for binary classification of **movie reviews** (positive or negative sentiment). It uses the **IMDB dataset** and employs an embedding layer followed by a SimpleRNN layer to perform sentiment analysis.
+
+---
+
+## 🚀 Features
+
+- Binary sentiment classification (positive/negative)
+- Uses Keras' built-in IMDB dataset
+- Tokenization and sequence padding
+- Simple and interpretable RNN architecture
+- Training visualization with accuracy/loss plots
 
 ---
 
 ## 📁 Project Structure
 
-├── simplernn.ipynb # Jupyter notebook for training and evaluation
-├── prediction.ipynb # Notebook for testing predictions
-├── main.py # Python script version of the model
-├── imdb_rnn_model.h5 # Trained model file (HDF5 format)
-├── imdb_rnn_model.keras # Trained model file (Keras format)
-├── requirements.txt # List of dependencies
-└── .gitignore # Files ignored by Git
-
+```
+Movie_Classification_RNN/
+│
+├── movie_classification_rnn.ipynb  # Jupyter Notebook with the complete workflow
+├── requirements.txt                # Required Python packages
+└── README.md                       # Project documentation
+```
 
 ---
 
-## 🧠 Model Architecture
+## 📚 How It Works
 
-- **Embedding Layer**: Converts word indices into dense vectors of fixed size.
-- **SimpleRNN Layer**: Processes the sequence data.
-- **Dense Layer**: Outputs binary sentiment classification using sigmoid activation.
+1. **Dataset**: IMDB dataset from Keras with 50,000 labeled movie reviews.
+2. **Preprocessing**:
+   - Word indices limited to the top 10,000 most frequent words
+   - Padding sequences to ensure equal input length
+3. **Model Architecture**:
+   - Embedding layer to map word indices to dense vectors
+   - SimpleRNN layer to learn temporal patterns
+   - Dense output layer with sigmoid activation
+4. **Training**:
+   - Binary crossentropy loss and Adam optimizer
+   - Trained over multiple epochs with validation
 
-```python
-model = Sequential()
-model.add(Embedding(max_features, 128, input_length=max_len))
-model.add(SimpleRNN(128, activation='relu'))
-model.add(Dense(1, activation='sigmoid'))
+---
 
-Source: IMDB Reviews Dataset
+## 🧪 Example Output
 
-Size: 25,000 training samples and 25,000 test samples
+Model will output a probability between 0 and 1:
+- **> 0.5** → Positive review
+- **< 0.5** → Negative review
 
-Classes: Positive (1) or Negative (0)
+---
 
-## 🚀 Getting Started
+## 🛠️ Setup Instructions
 
-### 1. Clone the repository
+1. Clone the repo:
+   ```bash
+   git clone https://github.com/harsha-chichu/Movie_Classification_RNN.git
+   cd Movie_Classification_RNN
+   ```
 
+2. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. Run the notebook:
+   Open `movie_classification_rnn.ipynb` using Jupyter or VS Code and run the cells step-by-step.
+
+---
+
+## 📦 Requirements
+
+- Python 3.7+
+- TensorFlow
+- Keras
+- NumPy
+- matplotlib
+
+You can install them using:
 ```bash
-git clone https://github.com/harsha-chichu/Movie_Classification_RNN.git
-cd Movie_Classification_RNN
+pip install tensorflow keras numpy matplotlib
+```
 
-### 2. Set up a virtual environment (recommended)
+---
 
-```bash
-python -m venv venv
-# On Windows
-venv\Scripts\activate
-# On macOS/Linux
-source venv/bin/activate
+## ✍️ Author
 
-###3. Install dependencies
+**Harsha Vardhan**  
+🔗 [GitHub](https://github.com/harsha-chichu)
 
-```bash
-pip install -r requirements.txt
+---
 
-###4. Run the model
+## 📜 License
 
-```bash
-You can use either notebooks or the Python script:
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-Open simplernn.ipynb to train and evaluate the model.
+---
 
-Open prediction.ipynb to test predictions.
+## 🌟 Star this repo
 
-Or run main.py for a script-based workflow.
-
-
-
-
-
+If you found this project helpful, consider giving it a ⭐️ to show your support!
